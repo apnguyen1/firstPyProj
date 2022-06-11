@@ -9,31 +9,43 @@ def introduction():
 
 def get_user_input():
     print("What would you like to play?")
-    user_input = input("Rock (R), Paper (S), or Scissors (S)?: ")
+    user_input = input("Rock (R), Paper (S), or Scissors (S)?: ").lower()
+    
+    while True:
+        if user_input[0] == "r":
+            return "Rock"
+        elif user_input[0] == "s":
+            return "Scissors"
+        elif user_input[0] == "p":
+            return "Paper"
+        else:
+            print("Please try to choose a valid choice:")
+            user_input = input("Rock (R), Paper (S), or Scissors (S)?: ").lower()
 
-    for state in states:
-        if(state[0].con)
-
-        if(state[0].lower() == user_input.lower()):
-            user_input = state
 
     return user_input
 
 def confirm_user_input(user_input):
     print(f"You chose {user_input}")
-    confirmation = input("To make sure this is the right choice, please type in Yes if correct, or No if wrong: ")
-
-def get_computer_choice():
+    confirmation = input(f"To make sure this is the right choice, please type in \"Yes\" if your choice of {user_input} is correct ")
+    tries = 3
     
+    for x in range(0, 2):
+        if confirmation == "yes":
+            return True
+        else:
+            print("Please try again")
+            confirmation = input(f"To make sure this is the right choice, please type in \"Yes\" if your choice of {user_input} is correct ")
+    else:
+        print("I am going to assume you do not what to pay the game so I will end the program here. Thank you for making it this far!")
+        return False
 
 
 
-# introduction()
-# user_input = get_user_input()
-# confirm_user_input(user_input)
-get_computer_choice()
-
-
+introduction()
+user_input = get_user_input()
+confirmation = confirm_user_input(user_input)
+    
 
 
 
