@@ -1,7 +1,7 @@
 import random
-from re import T
 
 states = ["Rock", "Paper", "Scissors"]
+user_point, computer_point = 0, 0
 
 def introduction():
     print("Welcome to Andrew's First Python Program: Rock, Paper, Scissors!")
@@ -44,6 +44,7 @@ def get_computer_choice():
     return random_state
 
 def outcome(user_input, computer_choice):
+    global user_point, computer_point
     wins = {
         states[0]: states[2],
         states[1]: states[0],
@@ -51,13 +52,20 @@ def outcome(user_input, computer_choice):
     }
     
     if user_input == computer_choice:
+        print(f"{user_point} - {computer_point}")
         print("TIE")
     else:
         if wins.get(user_input) == computer_choice:
+            user_point += 1
+            print(f"{user_point} - {computer_point}")
             print(f"USER WINS: {user_input} beats {computer_choice}")
+            
         else:
+            computer_point += 1
+            print(f"{user_point} - {computer_point}")
             print(f"USER LOSES: {computer_choice} beats {user_input}")
             
+    
 def play_again():
     response = input("Would you like to play again? (Type \"Yes\" or \"No\"): ").lower()
     
